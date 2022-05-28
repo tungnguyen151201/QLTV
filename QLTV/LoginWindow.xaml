@@ -1,0 +1,17 @@
+﻿<Window x:Class="QLTV.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTV"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="361" Width="298">
+    <Canvas>
+        <Label x:Name="UsernameLB" Content="Username" Margin="107,78,-107,-78" Height="30" Width="100" Canvas.Left="-9" Canvas.Top="-40"></Label>
+        <TextBox x:Name="UsernameTB" Height="30" Width="139" Canvas.Left="77" Canvas.Top="75"></TextBox>
+        <Label x:Name="PasswordLB" Content="Password" Margin="107,78,-107,-78" Height="30" Width="100" Canvas.Left="-14" Canvas.Top="58"></Label>
+        <TextBox x:Name="PasswordTB" Height="30" Width="139" Canvas.Left="73" Canvas.Top="178"></TextBox>
+        <Button x:Name="LoginBT" Content="Login" Height="30" Width="50" Canvas.Left="115" Canvas.Top="238"></Button>
+        <Button x:Name="RegisterBT" Content="Register" Height="30" Width="50" Canvas.Left="117" Canvas.Top="296"></Button>
+    </Canvas>
+</Window>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="QLTV.ExtendingMembershipForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTV"
+        mc:Ignorable="d"
+        Title="ExtendingMembershipForm" Height="476" Width="343">
+    <Canvas>
+        <Label x:Name="IDLB" Content="ID" Height="30" Width="50" Canvas.Left="35" Canvas.Top="16"></Label>
+        <TextBox x:Name="IDTB" Height="30" Width="80" Canvas.Left="28" Canvas.Top="52"></TextBox>
+        <Label x:Name="NumberOfMonthLB" Content="Number of month" Height="30" Width="120" Canvas.Left="35" Canvas.Top="113"></Label>
+        <TextBox x:Name="NumberOfMonthTB" Height="30" Width="80" Canvas.Left="42" Canvas.Top="163"></TextBox>
+        <Button x:Name="SubmitBT" Content="Submit" Height="30" Width="50" Canvas.Left="110" Canvas.Top="239"></Button>
+    </Canvas>
+</Window>
