@@ -36,5 +36,10 @@ namespace QLTV.GUI
             }  
             else MessageBox.Show("Thêm độc giả thất bại");
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
