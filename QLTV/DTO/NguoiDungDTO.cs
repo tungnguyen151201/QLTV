@@ -8,10 +8,18 @@ namespace QLTV.DTO
 {
     public class NguoiDungDTO
     {
-        public string MaNguoiDung { get; set; }
+        public int MaNguoiDung { get; set; }
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
         public DateTime NgayTao { get; set; }
         public int LoaiNguoiDung { get; set; }
+        public NguoiDungDTO(int manguoidung, string tendangnhap, string matkhau, DateTime ngaytao, int loainguoidung)
+        {
+            MaNguoiDung = manguoidung;
+            TenDangNhap = tendangnhap;
+            MatKhau = matkhau;
+            NgayTao = ngaytao;
+            LoaiNguoiDung = loainguoidung;
+        }
     }
 }

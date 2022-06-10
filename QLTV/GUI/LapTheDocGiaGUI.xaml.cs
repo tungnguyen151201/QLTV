@@ -1,7 +1,9 @@
 ﻿using QLTV.BUS;
+using QLTV.DAO;
 using QLTV.DTO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,17 +26,49 @@ namespace QLTV.GUI
         public DocGiaGUI()
         {
             InitializeComponent();
+            ngayLapTheText.Text = DateTime.Today.ToShortDateString();
+            int tuoiToiThieu = 18;
+            int tuoiToiDa = 35;
+            ngaySinhText.DisplayDateStart = DateTime.Today.AddYears(-tuoiToiDa);
+            ngaySinhText.DisplayDateEnd = DateTime.Today.AddYears(-tuoiToiThieu);
+            loaiDocGiaCbb.ItemsSource = LoaiDocGiaBUS.LayDanhSachLoaiDocGia();
         }
 
         private void xacNhanButton_Click(object sender, RoutedEventArgs e)
         {
-            DocGiaDTO docgia = new DocGiaDTO("ID01", hoTenText.Text, diaChiText.Text,
-                DateTime.Parse(ngaySinhText.Text), DateTime.Parse(ngayLapTheText.Text), (int)loaiDocGiaCbb.SelectedItem);
-            if (DocGiaBUS.ThemDocGia(docgia))
+            if (hoTenText.Text == string.Empty || ngaySinhText.Text == string.Empty || diaChiText.Text == string.Empty
+                || emailText.Text == string.Empty || loaiDocGiaCbb.SelectedIndex == -1)
             {
-                MessageBox.Show("Thêm độc giả thành công");
-            }  
-            else MessageBox.Show("Thêm độc giả thất bại");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {                            
+                NguoiDungDTO nguoidung = new NguoiDungDTO(0, emailText.Text, "123456", DateTime.Parse(ngayLapTheText.Text), 1);
+                string loaiDocGia = (string)loaiDocGiaCbb.SelectedItem;
+                loaiDocGia = loaiDocGia.Split(" - ")[0];               
+                if (NguoiDungBUS.ThemNguoiDung(nguoidung))
+                {
+                    int madocgia = NguoiDungBUS.TimNguoiDung(emailText.Text).MaNguoiDung;
+                    DocGiaDTO docgia = new DocGiaDTO(madocgia, hoTenText.Text, diaChiText.Text, emailText.Text,
+                    DateTime.Parse(ngaySinhText.Text), DateTime.Parse(ngayLapTheText.Text), int.Parse(loaiDocGia));
+                    if (DocGiaBUS.ThemDocGia(docgia))
+                    {
+                        MessageBox.Show("Thêm độc giả thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
+                }
+                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

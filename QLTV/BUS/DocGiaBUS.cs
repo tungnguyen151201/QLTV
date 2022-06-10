@@ -17,9 +17,6 @@ namespace QLTV.BUS
                 return false;
             }
             return DocGiaDAO.ThemDocGia(docgia);
-        }
-        //Xoa
-        //Sua
-        //...
+        }        
     }
 }
