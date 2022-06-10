@@ -70,5 +70,10 @@ namespace QLTV.GUI
         {
             Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
