@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLTV.DTO
 {
-    class SachDTO
+    public class SachDTO
     {
         public string MaSach { get; set; }
         public string TenSach { get; set; }
@@ -16,7 +16,7 @@ namespace QLTV.DTO
         public string NhaXuatBan { get; set; }
         public string NgayNhap { get; set; }
       
-        public SachDTO(string masach, string tensach, string theloai, string tacgia, string namXB,string NXB,string ngaynhap)
+        public SachDTO(string masach, string tensach, string theloai, string tacgia, string namXB,string NXB, string ngaynhap)
         {
             MaSach = masach;
             TenSach = tensach;

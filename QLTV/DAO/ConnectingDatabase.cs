@@ -13,7 +13,7 @@ namespace QLTV.DAO
         private static readonly string _connString;
         public static NpgsqlConnection _conn;
         static ConnectingDatabase(){
-             _connString = "Host=localhost;Username=postgres;Password=123;Database=QLTV";
+             _connString = "Host=localhost:5432;Username=postgres;Password=141517;Database=qltv";
             _conn = new NpgsqlConnection(_connString);
             _conn.Open();
         }
@@ -33,8 +33,9 @@ namespace QLTV.DAO
             }
             catch (NpgsqlException e)  // CS0168
             {
-               
-                    // Handle duplicate key error
+
+                // Handle duplicate key error
+                Debug.WriteLine(e.Message);
                 return false;
               
         

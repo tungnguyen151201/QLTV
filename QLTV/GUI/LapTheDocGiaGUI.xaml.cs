@@ -27,8 +27,8 @@ namespace QLTV.GUI
         {
             InitializeComponent();
             ngayLapTheText.Text = DateTime.Today.ToShortDateString();
-            int tuoiToiThieu = 18;
-            int tuoiToiDa = 35;
+            int tuoiToiThieu = QuyDinhBUS.TuoiToiThieu();
+            int tuoiToiDa = QuyDinhBUS.TuoiToiDa();
             ngaySinhText.DisplayDateStart = DateTime.Today.AddYears(-tuoiToiDa);
             ngaySinhText.DisplayDateEnd = DateTime.Today.AddYears(-tuoiToiThieu);
             loaiDocGiaCbb.ItemsSource = LoaiDocGiaBUS.LayDanhSachLoaiDocGia();
@@ -69,11 +69,6 @@ namespace QLTV.GUI
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

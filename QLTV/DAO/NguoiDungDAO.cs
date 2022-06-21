@@ -16,7 +16,7 @@ namespace QLTV.DAO
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
             con.Open();
 
-            string sql = "SELECT * FROM nguoidung WHERE tendangnhap=@tendangnhap";
+            string sql = "SELECT * FROM \"NguoiDung\" WHERE \"TenDangNhap\"=@tendangnhap";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
             cmd.Parameters.AddWithValue("tendangnhap", tenDangNhap);
             cmd.Prepare();
@@ -42,7 +42,7 @@ namespace QLTV.DAO
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
             con.Open();
 
-            string sql = "INSERT INTO nguoidung(tendangnhap, matkhau, ngaytao, loainguoidung)" +
+            string sql = "INSERT INTO \"NguoiDung\"(\"TenDangNhap\", \"MatKhau\", \"NgayTao\", \"LoaiNguoiDung\")" +
                 " VALUES(@tendangnhap, @matkhau, @ngaytao, @loainguoidung)";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
             cmd.Parameters.AddWithValue("tendangnhap", nguoidung.TenDangNhap);
