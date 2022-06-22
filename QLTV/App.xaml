@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:QLTV"
              xmlns:viewmodels="clr-namespace:QLTV.GUI"
-             StartupUri="GUI/GiaHanTheDocGia.xaml"
+             StartupUri="GUI/DangNhap.xaml"
            >
     <Application.Resources>
     

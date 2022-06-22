@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security.Cryptography;
 
 namespace QLTV.GUI
 {
@@ -41,7 +42,21 @@ namespace QLTV.GUI
                 NguoiDungDTO nguoidung = NguoiDungBUS.TimNguoiDung(tenDangNhapText.Text);
                 if (nguoidung != null)
                 {
-                    if (matKhauPassword.Password == nguoidung.MatKhau)
+                    MD5 md = MD5.Create();
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhauPassword.Password);
+                    //mã hóa chuỗi đã chuyển
+                    byte[] hash = md.ComputeHash(inputBytes);
+                    //tạo đối tượng StringBuilder (làm việc với kiểu dữ liệu lớn)
+                    StringBuilder sb = new StringBuilder();
+
+                    for (int i = 0; i < hash.Length; i++)
+                    {
+                        sb.Append(hash[i].ToString("X2"));
+                    }
+
+                    string hashedPassword = sb.ToString();
+
+                    if (hashedPassword == nguoidung.MatKhau)
                     {
                         MessageBox.Show("Đăng nhập thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;

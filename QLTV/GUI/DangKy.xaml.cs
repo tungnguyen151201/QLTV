@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,7 +46,21 @@ namespace QLTV.GUI
 
             try
             {
-                NguoiDungDTO nguoidung = new NguoiDungDTO(0, tenDangNhapText.Text, matKhauPassword.Password, DateTime.Parse(DateTime.Today.ToShortDateString()), 0);
+                MD5 md = MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhauPassword.Password);
+                //mã hóa chuỗi đã chuyển
+                byte[] hash = md.ComputeHash(inputBytes);
+                //tạo đối tượng StringBuilder (làm việc với kiểu dữ liệu lớn)
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("X2"));
+                }
+
+                string hashedPassword = sb.ToString();
+
+                NguoiDungDTO nguoidung = new NguoiDungDTO(0, tenDangNhapText.Text, hashedPassword, DateTime.Parse(DateTime.Today.ToShortDateString()), 0);
                 if (NguoiDungBUS.ThemNguoiDung(nguoidung))
                 {
                     MessageBox.Show("Đăng ký thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);

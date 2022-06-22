@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace QLTV.DAO
 {
@@ -41,7 +42,7 @@ namespace QLTV.DAO
         {
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
             con.Open();
-
+            
             string sql = "INSERT INTO \"NguoiDung\"(\"TenDangNhap\", \"MatKhau\", \"NgayTao\", \"LoaiNguoiDung\")" +
                 " VALUES(@tendangnhap, @matkhau, @ngaytao, @loainguoidung)";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
