@@ -14,8 +14,8 @@ namespace QLTV.DAO
         {
             const string Host = "localhost:5432";
             const string Username = "postgres";
-            const string Password = "141517";
-            const string Database = "qltv";
+            const string Password = "123";
+            const string Database = "QLTV";
 
             return $"Host={Host};Username={Username};Password={Password};Database={Database}";
         }       
