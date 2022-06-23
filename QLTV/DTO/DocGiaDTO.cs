@@ -14,6 +14,7 @@ namespace QLTV.DTO
         public string Email { get; set; }
         public DateTime NgaySinh { get; set; }
         public DateTime NgayLapThe { get; set; }
+        public DateTime NgayHetHan { get; set; }
         public int LoaiDocGia { get; set; }
         public DateTime NgayHetHan { get; set; }
         public DocGiaDTO(int madocgia, string hoten, string diachi, string email, DateTime ngaysinh, DateTime ngaylapthe, int loaidocgia, DateTime ngayhethan)

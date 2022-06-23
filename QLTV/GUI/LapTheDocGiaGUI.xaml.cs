@@ -51,7 +51,8 @@ namespace QLTV.GUI
                 {
                     int madocgia = NguoiDungBUS.TimNguoiDung(emailText.Text).MaNguoiDung;
                     DocGiaDTO docgia = new DocGiaDTO(madocgia, hoTenText.Text, diaChiText.Text, emailText.Text,
-                    DateTime.Parse(ngaySinhText.Text), DateTime.Parse(ngayLapTheText.Text), int.Parse(loaiDocGia), DateTime.Parse(ngayLapTheText.Text).AddYears(1));
+                    DateTime.Parse(ngaySinhText.Text), DateTime.Parse(ngayLapTheText.Text), int.Parse(loaiDocGia),
+                    DateTime.Parse(ngayLapTheText.Text).AddYears(QuyDinhBUS.ThoiHanGiaTriThe()));
                     if (DocGiaBUS.ThemDocGia(docgia))
                     {
                         MessageBox.Show("Thêm độc giả thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);

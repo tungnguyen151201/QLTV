@@ -19,5 +19,17 @@ namespace QLTV.BUS
             }
             return list;
         }
+        public static bool ThemLoaiSach(LoaiSachDTO loaisach)
+        {
+            return LoaiSachDAO.ThemLoaiSach(loaisach);
+        }
+        public static bool CapNhatLoaiSach(int maloai, string tenloaimoi)
+        {
+            return LoaiSachDAO.CapNhatLoaiSach(maloai, tenloaimoi);
+        }
+        public static bool XoaLoaiSach(int maloai)
+        {
+            return LoaiSachDAO.XoaLoaiSach(maloai);
+        }
     }
 }

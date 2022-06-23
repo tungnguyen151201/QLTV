@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:QLTV"
              xmlns:viewmodels="clr-namespace:QLTV.GUI"
              StartupUri="GUI/GiaHanTheDocGia.xaml"
-           >
     <Application.Resources>
     
 

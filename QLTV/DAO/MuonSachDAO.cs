@@ -61,12 +61,28 @@ namespace QLTV.DAO
      
         public static bool MuonSach(PhieuMuonSachDTO pm)
         {
-            //Insert SQL
-            var Sql  = $"INSERT INTO public.\"PhieuMuonSach\" (\"MaDocGia\",\"MaSach\",\"NgayMuon\") VALUES({pm.MaDocGia}, {pm.MaSach},'{pm.NgayMuon}')";
-            bool themphieu = ConnectingDatabase.NewQuery(Sql);
-            if (themphieu)
-                return true;
-            else return false;  
+            using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
+            con.Open();
+
+            string sql = "INSERT INTO \"PhieuMuonSach\"(\"MaDocGia\", \"MaSach\", \"NgayMuon\")" +
+                " VALUES(@madocgia, @masach, @ngaymuon)";
+            using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("madocgia", pm.MaDocGia);
+            cmd.Parameters.AddWithValue("masach", pm.MaSach);
+            cmd.Parameters.AddWithValue("ngaymuon", pm.NgayMuon);
+            cmd.Prepare();
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
+
+            return true;
         }
       
     }
