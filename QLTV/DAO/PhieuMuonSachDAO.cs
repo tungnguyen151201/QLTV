@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace QLTV.DAO
 {
-    public class NguoiDungDAO
+    class PhieuMuonSachDAO
     {
-        public static NguoiDungDTO TimNguoiDung(string tenDangNhap)
+        public static PhieuMuonSachDTO TimSach(int maSach)
         {
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
             con.Open();
 
-            string sql = "SELECT * FROM \"NguoiDung\" WHERE \"TenDangNhap\"=@tendangnhap";
+            string sql = "SELECT * FROM \"PhieuMuonSach\" WHERE \"MaSach\"=@masach";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("tendangnhap", tenDangNhap);
+            cmd.Parameters.AddWithValue("masach", maSach);
             cmd.Prepare();
 
             try
@@ -26,8 +26,8 @@ namespace QLTV.DAO
                 using NpgsqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    NguoiDungDTO nguoidung = new NguoiDungDTO(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetDateTime(3), rdr.GetInt32(4));
-                    return nguoidung;
+                    PhieuMuonSachDTO phieuMuonSach = new PhieuMuonSachDTO(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetDateTime(2));
+                    return phieuMuonSach;
                 }
             }
             catch (NpgsqlException ex)
@@ -37,18 +37,17 @@ namespace QLTV.DAO
             }
             return null;
         }
-        public static bool ThemNguoiDung(NguoiDungDTO nguoidung)
+        public static bool ThemPhieuMuonSach(PhieuMuonSachDTO phieuMuonSach)
         {
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
             con.Open();
-            
-            string sql = "INSERT INTO \"NguoiDung\"(\"TenDangNhap\", \"MatKhau\", \"NgayTao\", \"LoaiNguoiDung\")" +
-                " VALUES(@tendangnhap, @matkhau, @ngaytao, @loainguoidung)";
+
+            string sql = "INSERT INTO \"PhieuMuonSach\"(\"MaDocGia\", \"MaSach\", \"NgayMuon\")" +
+                " VALUES(@madocgia, @masach, @ngaymuon)";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("tendangnhap", nguoidung.TenDangNhap);
-            cmd.Parameters.AddWithValue("matkhau", nguoidung.MatKhau);
-            cmd.Parameters.AddWithValue("ngaytao", nguoidung.NgayTao);
-            cmd.Parameters.AddWithValue("loainguoidung", nguoidung.LoaiNguoiDung);
+            cmd.Parameters.AddWithValue("madocgia", phieuMuonSach.MaDocGia);
+            cmd.Parameters.AddWithValue("masach", phieuMuonSach.MaSach);
+            cmd.Parameters.AddWithValue("ngaymuon", phieuMuonSach.NgayMuon);
             cmd.Prepare();
 
             try

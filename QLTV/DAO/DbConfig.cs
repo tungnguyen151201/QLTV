@@ -17,7 +17,7 @@ namespace QLTV.DAO
             const string Password = "123";
             const string Database = "QLTV";
 
-            return $"Host={Host};Username={Username};Password={Password};Database={Database}";
+            return $"Host={Host};Username={Username};Password={Password};Database={Database}; Include Error Detail=true";
         }       
     }
 }
