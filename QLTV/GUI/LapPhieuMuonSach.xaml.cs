@@ -40,10 +40,10 @@ namespace QLTV.GUI
                 PhieuMuonSachDTO phieuMuonSach = new PhieuMuonSachDTO(Int32.Parse(maDocGiaText.Text), Int32.Parse(maSachText.Text), DateTime.Parse(ngayMuonText.Text));
                 if (PhieuMuonSachBUS.ThemPhieuMuonSach(phieuMuonSach))
                 {
-                    MessageBox.Show("Thêm độc giả thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Mượn sách thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
-                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Mượn sách thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
