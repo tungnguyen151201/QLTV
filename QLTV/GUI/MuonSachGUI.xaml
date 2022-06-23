@@ -57,7 +57,7 @@
                             <TextBlock x:Name="HeaderName"  Text="{Binding TenSach}" FontWeight="Bold"  FontSize="25" Margin="0 "  Height="35"/>
 
                             <TextBlock  HorizontalAlignment="Left" Text="{Binding TacGia}" FontSize="15" TextWrapping="Wrap" Foreground="#FF6A6A6A"/>
-                            <Button  x:Name="MuonSach" HorizontalAlignment="Right" Click="muonSachButton_Click"  Foreground="White" FontSize="20" Background="#2F848A" BorderBrush="#FF4572A0" Content="Mượn sách" Margin="20 30 0 0  " Width="205" Height="30"
+                            <Button  x:Name="MuonSach" HorizontalAlignment="Right" Click="muonSachButton_Click"  Foreground="White" FontSize="20" Background="#2F848A" BorderBrush="#FF4572A0" Content="Lập phiếu mượn sách" Margin="20 30 0 0  " Width="205" Height="30"
                                              Tag="{Binding MaSach}" />
                         </StackPanel>
 

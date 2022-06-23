@@ -13,7 +13,7 @@ namespace QLTV.DAO
         private static readonly string _connString;
         public static NpgsqlConnection _conn;
         static ConnectingDatabase(){
-             _connString = "Host=localhost:5432;Username=postgres;Password=141517;Database=qltv";
+             _connString = "Host=localhost:5432;Username=postgres;Password=123;Database=QLTV";
             _conn = new NpgsqlConnection(_connString);
             _conn.Open();
         }
