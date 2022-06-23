@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,8 +44,21 @@ namespace QLTV.GUI
                 return;
             }
             try
-            {                            
-                NguoiDungDTO nguoidung = new NguoiDungDTO(0, emailText.Text, "123456", DateTime.Parse(ngayLapTheText.Text), 1);
+            {
+                MD5 md = MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes("123456");
+                //mã hóa chuỗi đã chuyển
+                byte[] hash = md.ComputeHash(inputBytes);
+                //tạo đối tượng StringBuilder (làm việc với kiểu dữ liệu lớn)
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("X2"));
+                }
+
+                string hashedPassword = sb.ToString();
+                NguoiDungDTO nguoidung = new NguoiDungDTO(0, emailText.Text, hashedPassword, DateTime.Parse(ngayLapTheText.Text), 1);
                 string loaiDocGia = (string)loaiDocGiaCbb.SelectedItem;
                 loaiDocGia = loaiDocGia.Split(" - ")[0];               
                 if (NguoiDungBUS.ThemNguoiDung(nguoidung))
@@ -70,6 +84,12 @@ namespace QLTV.GUI
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void themLoaiDocGiaButton_Click(object sender, RoutedEventArgs e)
+        {
+            ThemLoaiDocGia themLoaiDocGia = new ThemLoaiDocGia();
+            themLoaiDocGia.Show();
         }
     }
 }

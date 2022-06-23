@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace QLTV.DTO
 {
-    public class SachDTO
+    public class SachDTO : INotifyPropertyChanged
     {
         public string MaSach { get; set; }
         public string TenSach { get; set; }
@@ -26,5 +27,7 @@ namespace QLTV.DTO
             NhaXuatBan = NXB;
             NgayNhap = ngaynhap;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

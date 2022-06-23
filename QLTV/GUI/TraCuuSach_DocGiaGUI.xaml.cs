@@ -23,37 +23,14 @@ namespace QLTV.GUI
     /// <summary>
     /// Interaction logic for DocGiaGUI.xaml
     /// </summary>
-    public partial class MuonSachGUI : Window
+    public partial class TraCuuSachDocGiaGUI : Window
     {
-        public MuonSachGUI()
+        public static int _role;
+        public TraCuuSachDocGiaGUI()
         {
             InitializeComponent();
-            list_View.ItemsSource = MuonSachDAO.LoadSach();
-
-        }
-   
-        private void muonSachButton_Click(object sender, RoutedEventArgs e)
-        {
-            var button = (FrameworkElement)sender;
-            var data = button.Tag;
-            int masach = int.Parse(data.ToString());
-            int madocgia = 4;// Ma nguoi dung dang nhap
-
-            string ngaymuon = DateTime.Today.ToShortDateString();
-
-            PhieuMuonSachDTO Phieu = new PhieuMuonSachDTO(madocgia,masach, DateTime.Parse(ngaymuon));
-
-            bool check_phieu = MuonSachBUS.MuonSach(Phieu);
-            if (check_phieu)
-            {
-                MessageBox.Show("Mượn thành công !");
-            }
-            else
-            {
-                MessageBox.Show("Sách đã được mượn!");
-            }
-
-        }
+            list_View.ItemsSource = MuonSachDAO.LoadSach();  
+        }        
 
         private void traCuuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -76,7 +53,5 @@ namespace QLTV.GUI
             var book = (ListView)sender;
             Debug.WriteLine(book.SelectedItem);
         }
-
-      
     }
 }

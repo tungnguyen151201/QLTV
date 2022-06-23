@@ -58,7 +58,17 @@ namespace QLTV.GUI
 
                     if (hashedPassword == nguoidung.MatKhau)
                     {
-                        MessageBox.Show("Đăng nhập thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        if (nguoidung.LoaiNguoiDung == 0)
+                        {
+                            ThuThuHomePage thuThuHomePage = new ThuThuHomePage();
+                            thuThuHomePage.Show();                           
+                        }
+                        else
+                        {
+                            DocGiaHomePage docGiaHomePage = new DocGiaHomePage(nguoidung.TenDangNhap);
+                            docGiaHomePage.Show();
+                        }
+                        Close();
                         return;
                     }
 
@@ -75,7 +85,7 @@ namespace QLTV.GUI
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace QLTV.DAO
                 return null;
             }
             return null;
-        }
+        }        
         public static bool ThemDocGia(DocGiaDTO docgia)
         {
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());

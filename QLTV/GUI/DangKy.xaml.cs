@@ -76,7 +76,7 @@ namespace QLTV.GUI
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }

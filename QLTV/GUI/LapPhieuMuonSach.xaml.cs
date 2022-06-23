@@ -23,9 +23,11 @@ namespace QLTV.GUI
     /// </summary>
     public partial class LapPhieuMuonSach : Window
     {
-        public LapPhieuMuonSach()
+        public LapPhieuMuonSach(int masach)
         {
             InitializeComponent();
+            maSachText.Text = masach.ToString();
+            ngayMuonText.Text = DateTime.Today.ToShortDateString();
         }
 
         private void xacNhanButton_Click(object sender, RoutedEventArgs e)
@@ -37,7 +39,8 @@ namespace QLTV.GUI
             }
             try
             {
-                PhieuMuonSachDTO phieuMuonSach = new PhieuMuonSachDTO(Int32.Parse(maDocGiaText.Text), Int32.Parse(maSachText.Text), DateTime.Parse(ngayMuonText.Text));
+                int maDocGia = NguoiDungBUS.TimNguoiDung(maDocGiaText.Text).MaNguoiDung;
+                PhieuMuonSachDTO phieuMuonSach = new PhieuMuonSachDTO(maDocGia, Int32.Parse(maSachText.Text), DateTime.Parse(ngayMuonText.Text));
                 if (PhieuMuonSachBUS.ThemPhieuMuonSach(phieuMuonSach))
                 {
                     MessageBox.Show("Mượn sách thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);

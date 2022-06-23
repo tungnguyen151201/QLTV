@@ -9,9 +9,9 @@ namespace QLTV.BUS
 {
     class TraSachBUS
     {
-        public static List<SachDTO> LoadSach()
+        public static List<SachDTO> LoadSach(int manguoidung)
         {
-            return TraSachDAO.LoadSachMuon();
+            return TraSachDAO.LoadSachMuon(manguoidung);
         }
         public static List<SachDTO> TraCuuSach(string str)
         {

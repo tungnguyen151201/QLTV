@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLTV.GUI"
         mc:Ignorable="d"
-        Title="GiaHanTheDocGia" Height="450" Width="800">
+        Title="GiaHanTheDocGia" Height="300" Width="600">
     <StackPanel>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" FontSize="24">GIA HẠN THẺ ĐỘC GIẢ</TextBlock>
         <Grid Margin="50,20,50,20" HorizontalAlignment="Center">
@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="0.75*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14">Mã độc giả</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14">Tên đăng nhập</TextBlock>
             <TextBox x:Name="maDocGiaText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Height="25" Margin="20,0,0,0" FontSize="14"></TextBox>
             <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14">Số năm muốn gia hạn</TextBlock>
             <TextBox x:Name="namGiaHanText" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Height="25" Margin="20,0,0,0" FontSize="14"></TextBox>

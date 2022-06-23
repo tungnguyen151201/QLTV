@@ -75,5 +75,11 @@ namespace QLTV.GUI
         {
             Close();
         }
+
+        private void themLoaiSachButton_Click(object sender, RoutedEventArgs e)
+        {
+            ThemLoaiSach themLoaiSach = new ThemLoaiSach();
+            themLoaiSach.Show();
+        }
     }
 }

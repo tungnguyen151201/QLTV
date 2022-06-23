@@ -21,6 +21,10 @@ namespace QLTV.BUS
         public static NguoiDungDTO TimNguoiDung(string tenDangNhap)
         {
             return NguoiDungDAO.TimNguoiDung(tenDangNhap);
-        }    
+        } 
+        public static bool CapNhatMatKhau(string tendangnhap, string matkhau)
+        {
+            return NguoiDungDAO.CapNhatMatKhau(tendangnhap, matkhau);
+        }
     }
 }

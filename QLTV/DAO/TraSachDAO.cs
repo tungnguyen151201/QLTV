@@ -24,9 +24,10 @@ namespace QLTV.DAO
             line = new SachDTO(masach, tensach, theloai, tacgia, namXB, NXB, ngaynhap);
             return line;
         }
-        static TraSachDAO()
+        public static List<SachDTO> LoadSachMuon(int manguoidung)
         {
-            var sql = "SELECT * FROM public.\"Sach\" S, \"PhieuMuonSach\" PM WHERE S.\"MaSach\" = PM.\"MaSach\"";
+            var sql = "SELECT * FROM public.\"Sach\" S, \"PhieuMuonSach\" PM WHERE S.\"MaSach\" = PM.\"MaSach\"" +
+                $"AND PM.\"MaDocGia\"={manguoidung}";
 
             DataTable Sach = ConnectingDatabase.getDataset(sql);
 
@@ -35,11 +36,7 @@ namespace QLTV.DAO
                 Object[] row = Sach.Rows[i].ItemArray;
                 List_Sach_Muon.Add(parseDataTable(row));
             }
-
-        }
-        public static List<SachDTO> LoadSachMuon()
-        {
-            return List_Sach_Muon;
+            return List_Sach_Muon;            
         }
         public static List<SachDTO> TracuuSachMuon(string str)
         {

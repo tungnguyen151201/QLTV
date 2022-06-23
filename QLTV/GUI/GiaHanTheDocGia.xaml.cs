@@ -37,18 +37,14 @@ namespace QLTV.GUI
             }
             try
             {
-                DocGiaDTO docGia = DocGiaBUS.TimDocGia(Int32.Parse(maDocGiaText.Text));
+                int madocgia = NguoiDungBUS.TimNguoiDung(maDocGiaText.Text).MaNguoiDung;
+                DocGiaDTO docGia = DocGiaBUS.TimDocGia(madocgia);
                 if (docGia != null)
                 {
                     docGia.NgayHetHan = docGia.NgayHetHan.AddYears(Int32.Parse(namGiaHanText.Text));
 
                     if(DocGiaBUS.CapNhatDocGia(docGia))
-                    int madocgia = NguoiDungBUS.TimNguoiDung(emailText.Text).MaNguoiDung;
-                    DocGiaDTO docgia = new DocGiaDTO(madocgia, hoTenText.Text, diaChiText.Text, emailText.Text,
-                    DateTime.Parse(ngaySinhText.Text), DateTime.Parse(ngayLapTheText.Text), int.Parse(loaiDocGia),
-                    DateTime.Parse(ngayLapTheText.Text).AddYears(QuyDinhBUS.ThoiHanGiaTriThe()));
-                    if (DocGiaBUS.ThemDocGia(docgia))
-                    {
+                    { 
                         MessageBox.Show("Gia hạn thẻ thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
                     }

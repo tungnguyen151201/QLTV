@@ -24,19 +24,17 @@ namespace QLTV.GUI
     /// <summary>
     /// Interaction logic for DocGiaGUI.xaml
     /// </summary>
-    public partial class TraSachGUI : Window
+    public partial class TraCuuSachMuonGUI : Window
     {
-        public TraSachGUI()
+        public TraCuuSachMuonGUI()
         {
-            InitializeComponent();
-            list_Book_Rental.ItemsSource = TraSachBUS.LoadSach();
-         
+            InitializeComponent();                     
         }
 
   
         private void SachMuonSearch_Btn_Click(object sender, RoutedEventArgs e)
         {
-            string str_search = tbxTraCuu.Text;
+            /*string str_search = tbxTraCuu.Text;
 
             List<SachDTO> list_searched = TraSachBUS.TraCuuSach(str_search);
             if (list_searched?.Any() != true)
@@ -47,8 +45,9 @@ namespace QLTV.GUI
             {
                 list_Book_Rental.ItemsSource = list_searched;
 
-            }
-
+            }*/
+            NguoiDungDTO nguoidung = NguoiDungBUS.TimNguoiDung(tbxTraCuu.Text);
+            list_Book_Rental.ItemsSource = TraSachBUS.LoadSach(nguoidung.MaNguoiDung);
         }
         private void traSachButton_Click(object sender, RoutedEventArgs e)
         {
@@ -62,11 +61,12 @@ namespace QLTV.GUI
             {
                 
                 MessageBox.Show("Trả sách thành công!");
-                list_Book_Rental.ItemsSource = null;
-                list_Book_Rental.Items.Clear();
-                //// The list<> has been updated so reload the listview [2]
-                list_Book_Rental.ItemsSource = TraSachDAO.LoadSachMuon();
-                list_Book_Rental.Items.Refresh();
+                //list_Book_Rental.ItemsSource = null;
+                //list_Book_Rental.Items.Clear();
+                ////// The list<> has been updated so reload the listview [2]
+                //NguoiDungDTO nguoidung = NguoiDungBUS.TimNguoiDung(tbxTraCuu.Text);
+                //list_Book_Rental.ItemsSource = TraSachBUS.LoadSach(nguoidung.MaNguoiDung);
+                //list_Book_Rental.Items.Refresh();
             
  
             }

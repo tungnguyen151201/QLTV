@@ -1,4 +1,4 @@
-﻿<Window x:Class="QLTV.GUI.MuonSachGUI"
+﻿<Window x:Class="QLTV.GUI.TraCuuSachGUI"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -58,7 +58,7 @@
 
                             <TextBlock  HorizontalAlignment="Left" Text="{Binding TacGia}" FontSize="15" TextWrapping="Wrap" Foreground="#FF6A6A6A"/>
                             <Button  x:Name="MuonSach" HorizontalAlignment="Right" Click="muonSachButton_Click"  Foreground="White" FontSize="20" Background="#2F848A" BorderBrush="#FF4572A0" Content="Lập phiếu mượn sách" Margin="20 30 0 0  " Width="205" Height="30"
-                                             Tag="{Binding MaSach}" />
+                                             Tag="{Binding MaSach}"/>
                         </StackPanel>
 
                     </DataTemplate>
