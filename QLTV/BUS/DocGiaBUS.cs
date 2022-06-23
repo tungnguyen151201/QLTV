@@ -17,6 +17,16 @@ namespace QLTV.BUS
                 return false;
             }
             return DocGiaDAO.ThemDocGia(docgia);
-        }        
+        }
+        
+        public static DocGiaDTO TimDocGia(int maDocGia)
+        {
+            return DocGiaDAO.TimDocGia(maDocGia);
+        }
+
+        public static bool CapNhatDocGia(DocGiaDTO docgia)
+        {
+            return DocGiaDAO.CapNhatDocGia(docgia);
+        }
     }
 }

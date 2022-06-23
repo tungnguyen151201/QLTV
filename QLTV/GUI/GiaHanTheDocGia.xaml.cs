@@ -30,29 +30,25 @@ namespace QLTV.GUI
 
         private void xacNhanButton_Click(object sender, RoutedEventArgs e)
         {
-            if (hoTenText.Text == string.Empty || ngaySinhText.Text == string.Empty || diaChiText.Text == string.Empty
-                || emailText.Text == string.Empty || loaiDocGiaCbb.SelectedIndex == -1)
+            if (maDocGiaText.Text == string.Empty || namGiaHanText.Text == string.Empty)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
             {
-                NguoiDungDTO nguoidung = new NguoiDungDTO(0, emailText.Text, "123456", DateTime.Parse(ngayLapTheText.Text), 1);
-                string loaiDocGia = (string)loaiDocGiaCbb.SelectedItem;
-                loaiDocGia = loaiDocGia.Split(" - ")[0];
-                if (NguoiDungBUS.ThemNguoiDung(nguoidung))
+                DocGiaDTO docGia = DocGiaBUS.TimDocGia(Int32.Parse(maDocGiaText.Text));
+                if (docGia != null)
                 {
-                    int madocgia = NguoiDungBUS.TimNguoiDung(emailText.Text).MaNguoiDung;
-                    DocGiaDTO docgia = new DocGiaDTO(madocgia, hoTenText.Text, diaChiText.Text, emailText.Text,
-                    DateTime.Parse(ngaySinhText.Text), DateTime.Parse(ngayLapTheText.Text), int.Parse(loaiDocGia));
-                    if (DocGiaBUS.ThemDocGia(docgia))
+                    docGia.NgayHetHan = docGia.NgayHetHan.AddYears(Int32.Parse(namGiaHanText.Text));
+
+                    if(DocGiaBUS.CapNhatDocGia(docGia))
                     {
-                        MessageBox.Show("Thêm độc giả thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Gia hạn thẻ thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
                     }
                 }
-                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Gia hạn thẻ thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
