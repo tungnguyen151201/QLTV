@@ -69,8 +69,6 @@ namespace QLTV.GUI
                 list_View.ItemsSource = list_searched;
 
             }
-
-
         }
 
         private void Book_selected(object sender, SelectionChangedEventArgs e)
