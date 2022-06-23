@@ -11,7 +11,7 @@ namespace QLTV.DTO
         public int MaDocGia{ get; set; }
         public int MaSach { get; set; }
         public DateTime NgayMuon { get; set; }
-        public PhieuMuonSachDTO(int madocgia,int masach,DateTime ngaymuon)
+        public PhieuMuonSachDTO(int madocgia, int masach, DateTime ngaymuon)
         {
             MaDocGia = madocgia;
             MaSach = masach;

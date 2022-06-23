@@ -37,13 +37,13 @@ namespace QLTV.GUI
             var button = (FrameworkElement)sender;
             var data = button.Tag;
             int masach = int.Parse(data.ToString());
-            int madocgia = 1;// Ma nguoi dung dang nhap
-          
-            DateTime ngaymuon = DateTime.Now;
-            PhieuMuonSachDTO Phieu = new PhieuMuonSachDTO(madocgia,masach,ngaymuon);
+            int madocgia = 4;// Ma nguoi dung dang nhap
 
+            string ngaymuon = DateTime.Today.ToShortDateString();
 
-            bool check_phieu = MuonSachDAO.MuonSach(Phieu);
+            PhieuMuonSachDTO Phieu = new PhieuMuonSachDTO(madocgia,masach, DateTime.Parse(ngaymuon));
+
+            bool check_phieu = MuonSachBUS.MuonSach(Phieu);
             if (check_phieu)
             {
                 MessageBox.Show("Mượn thành công !");

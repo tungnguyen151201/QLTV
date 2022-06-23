@@ -36,8 +36,7 @@ namespace QLTV.DAO
 
                 // Handle duplicate key error
                 Debug.WriteLine(e.Message);
-                return false;
-              
+                return false;     
         
             }
             return true;
