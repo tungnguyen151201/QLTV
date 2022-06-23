@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:QLTV"
              xmlns:viewmodels="clr-namespace:QLTV.GUI"
+<<<<<<< HEAD
              StartupUri="GUI/DocGiaHomePage.xaml"
+=======
+             StartupUri="GUI/ThemLoaiSachGUI.xaml"
+>>>>>>> 2fef6f6e4a6649dd2eacbebf12ca28c99707365b
            >
     <Application.Resources>
     

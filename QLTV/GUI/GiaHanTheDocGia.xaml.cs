@@ -19,19 +19,13 @@ using System.Windows.Shapes;
 namespace QLTV.GUI
 {
     /// <summary>
-    /// Interaction logic for DocGiaGUI.xaml
+    /// Interaction logic for GiaHanTheDocGia.xaml
     /// </summary>
-    public partial class DocGiaGUI : Window
+    public partial class GiaHanTheDocGia : Window
     {
-        public DocGiaGUI()
+        public GiaHanTheDocGia()
         {
             InitializeComponent();
-            ngayLapTheText.Text = DateTime.Today.ToShortDateString();
-            int tuoiToiThieu = QuyDinhBUS.TuoiToiThieu();
-            int tuoiToiDa = QuyDinhBUS.TuoiToiDa();
-            ngaySinhText.DisplayDateStart = DateTime.Today.AddYears(-tuoiToiDa);
-            ngaySinhText.DisplayDateEnd = DateTime.Today.AddYears(-tuoiToiThieu);
-            loaiDocGiaCbb.ItemsSource = LoaiDocGiaBUS.LayDanhSachLoaiDocGia();
         }
 
         private void xacNhanButton_Click(object sender, RoutedEventArgs e)
@@ -43,10 +37,10 @@ namespace QLTV.GUI
                 return;
             }
             try
-            {                            
+            {
                 NguoiDungDTO nguoidung = new NguoiDungDTO(0, emailText.Text, "123456", DateTime.Parse(ngayLapTheText.Text), 1);
                 string loaiDocGia = (string)loaiDocGiaCbb.SelectedItem;
-                loaiDocGia = loaiDocGia.Split(" - ")[0];               
+                loaiDocGia = loaiDocGia.Split(" - ")[0];
                 if (NguoiDungBUS.ThemNguoiDung(nguoidung))
                 {
                     int madocgia = NguoiDungBUS.TimNguoiDung(emailText.Text).MaNguoiDung;
@@ -59,7 +53,7 @@ namespace QLTV.GUI
                         return;
                     }
                 }
-                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);               
+                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
