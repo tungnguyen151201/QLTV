@@ -1,21 +1,9 @@
 ﻿using QLTV.BUS;
-using QLTV.DAO;
 using QLTV.DTO;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QLTV.GUI
 {
@@ -31,14 +19,14 @@ namespace QLTV.GUI
 
         private void xacNhanButton_Click(object sender, RoutedEventArgs e)
         {
-            if (tenDangNhapText.Text == string.Empty || matKhauPassword.Password == string.Empty || 
+            if (tenDangNhapText.Text == string.Empty || matKhauPassword.Password == string.Empty ||
                 nhapLaiMatKhauPassword.Password == string.Empty)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if(nhapLaiMatKhauPassword.Password != matKhauPassword.Password)
+            if (nhapLaiMatKhauPassword.Password != matKhauPassword.Password)
             {
                 MessageBox.Show("Mật khẩu nhập lại không đúng", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

@@ -1,21 +1,9 @@
 ﻿using QLTV.BUS;
-using QLTV.DAO;
 using QLTV.DTO;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QLTV.GUI
 {
@@ -60,7 +48,7 @@ namespace QLTV.GUI
                 string hashedPassword = sb.ToString();
                 NguoiDungDTO nguoidung = new NguoiDungDTO(0, emailText.Text, hashedPassword, DateTime.Parse(ngayLapTheText.Text), 1);
                 string loaiDocGia = (string)loaiDocGiaCbb.SelectedItem;
-                loaiDocGia = loaiDocGia.Split(" - ")[0];               
+                loaiDocGia = loaiDocGia.Split(" - ")[0];
                 if (NguoiDungBUS.ThemNguoiDung(nguoidung))
                 {
                     int madocgia = NguoiDungBUS.TimNguoiDung(emailText.Text).MaNguoiDung;
@@ -73,7 +61,7 @@ namespace QLTV.GUI
                         return;
                     }
                 }
-                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);               
+                MessageBox.Show("Thêm độc giả thất bại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {

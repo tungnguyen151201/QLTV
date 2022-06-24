@@ -1,20 +1,9 @@
 ﻿using QLTV.BUS;
 using QLTV.DAO;
 using QLTV.DTO;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QLTV.GUI
 {
@@ -26,7 +15,7 @@ namespace QLTV.GUI
         BindingList<LoaiDocGiaDTO> list;
         public ThemLoaiDocGia()
         {
-            InitializeComponent();                      
+            InitializeComponent();
         }
 
         private void listView_Click(object sender, MouseButtonEventArgs e)
@@ -51,7 +40,7 @@ namespace QLTV.GUI
                 else
                 {
                     MessageBox.Show("Có lỗi xảy ra vui lòng thử lại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }    
+                }
             }
             else MessageBox.Show("Bạn chưa chọn loại độc giả cần xóa", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
@@ -72,7 +61,7 @@ namespace QLTV.GUI
             else
             {
                 MessageBox.Show("Có lỗi xảy ra vui lòng thử lại", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }    
+            }
         }
 
         private void capnhatButton_Click(object sender, RoutedEventArgs e)
@@ -84,7 +73,7 @@ namespace QLTV.GUI
             }
             var index = myListView.SelectedIndex;
             if (index != -1)
-            {                              
+            {
                 if (LoaiDocGiaBUS.CapNhatLoaiDocGia(list[index].MaLoai, loaiDocGiaText.Text))
                 {
                     list[index].TenLoai = loaiDocGiaText.Text;

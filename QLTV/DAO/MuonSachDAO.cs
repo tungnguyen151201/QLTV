@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Npgsql;
 using QLTV.DTO;
-using Npgsql;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 namespace QLTV.DAO
@@ -14,7 +11,7 @@ namespace QLTV.DAO
     {
         private static List<SachDTO> List_Sach = new List<SachDTO>();
 
-        public static SachDTO parseDataTable(Object []row)
+        public static SachDTO parseDataTable(Object[] row)
         {
             SachDTO line;
             string masach = row[0].ToString();
@@ -41,7 +38,7 @@ namespace QLTV.DAO
             }
 
         }
-        public static List<SachDTO>  LoadSach()
+        public static List<SachDTO> LoadSach()
         {
             return List_Sach;
         }
@@ -50,7 +47,7 @@ namespace QLTV.DAO
             List<SachDTO> List_Tra_Cuu = new List<SachDTO>();
 
             var sql = $"SELECT * FROM public.\"Sach\" WHERE \"TenSach\" LIKE \'{Name}%\'";
-            DataTable Sach_tra_cuu = ConnectingDatabase.getDataset(sql );
+            DataTable Sach_tra_cuu = ConnectingDatabase.getDataset(sql);
             for (int i = 0; i < Sach_tra_cuu.Rows.Count; i++)
             {
                 Object[] row = Sach_tra_cuu.Rows[i].ItemArray;
@@ -58,7 +55,7 @@ namespace QLTV.DAO
             }
             return List_Tra_Cuu;
         }
-     
+
         public static bool MuonSach(PhieuMuonSachDTO pm)
         {
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
@@ -84,6 +81,6 @@ namespace QLTV.DAO
 
             return true;
         }
-      
+
     }
 }

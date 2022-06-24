@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Npgsql;
+﻿using Npgsql;
 using System.Data;
+using System.Diagnostics;
 namespace QLTV.DAO
 {
     class ConnectingDatabase
     {
         private static readonly string _connString;
         public static NpgsqlConnection _conn;
-        static ConnectingDatabase(){
-             _connString = "Host=localhost:5432;Username=postgres;Password=141517;Database=qltv";
+        static ConnectingDatabase()
+        {
+            _connString = "Host=localhost:5432;Username=postgres;Password=141517;Database=qltv";
             _conn = new NpgsqlConnection(_connString);
             _conn.Open();
         }
@@ -24,7 +20,7 @@ namespace QLTV.DAO
         }
         public static bool NewQuery(string sql)
         {
-            
+
             try
             {
                 Debug.WriteLine(sql);
@@ -36,11 +32,11 @@ namespace QLTV.DAO
 
                 // Handle duplicate key error
                 Debug.WriteLine(e.Message);
-                return false;     
-        
+                return false;
+
             }
             return true;
-        }    
+        }
 
         public static DataTable getDataset(string sql)
         {
@@ -49,6 +45,6 @@ namespace QLTV.DAO
             var tb = new DataTable();
             ad.Fill(tb);
             return tb;
-        }   
+        }
     }
 }

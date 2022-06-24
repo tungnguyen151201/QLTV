@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QLTV.DTO
+﻿namespace QLTV.DTO
 {
     public class QuyDinhDTO
     {
@@ -22,7 +16,7 @@ namespace QLTV.DTO
             KhoangCachNamXuatBan = 10;
             SoSachMuonToiDa = 5;
             SoNgayMuonToiDa = 7;
-        }    
+        }
         public QuyDinhDTO(int tuoitoithieu, int tuoitoida, int thoihangiatrithe, int khoangcachnxb, int sosachmuontoida, int songaymuontoida)
         {
             TuoiToiThieu = tuoitoithieu;

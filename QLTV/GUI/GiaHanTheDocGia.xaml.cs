@@ -1,20 +1,7 @@
 ﻿using QLTV.BUS;
-using QLTV.DAO;
 using QLTV.DTO;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QLTV.GUI
 {
@@ -43,8 +30,8 @@ namespace QLTV.GUI
                 {
                     docGia.NgayHetHan = docGia.NgayHetHan.AddYears(Int32.Parse(namGiaHanText.Text));
 
-                    if(DocGiaBUS.CapNhatDocGia(docGia))
-                    { 
+                    if (DocGiaBUS.CapNhatDocGia(docGia))
+                    {
                         MessageBox.Show("Gia hạn thẻ thành công", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                         return;
                     }

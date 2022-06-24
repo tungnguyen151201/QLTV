@@ -3,9 +3,6 @@ using QLTV.DTO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QLTV.DAO
 {
@@ -14,13 +11,13 @@ namespace QLTV.DAO
         public static List<LoaiDocGiaDTO> LayDanhSachLoaiDocGia()
         {
             List<LoaiDocGiaDTO> list = new List<LoaiDocGiaDTO>();
-            
+
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());
             con.Open();
 
             string sql = "SELECT * FROM \"LoaiDocGia\"";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
-            
+
             try
             {
                 using NpgsqlDataReader rdr = cmd.ExecuteReader();
@@ -80,7 +77,7 @@ namespace QLTV.DAO
             con.Open();
             string sql = "DELETE FROM \"LoaiDocGia\" WHERE \"MaLoai\"=@maloai";
             using NpgsqlCommand cmd = new NpgsqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("maloai", maloai);           
+            cmd.Parameters.AddWithValue("maloai", maloai);
             try
             {
                 cmd.ExecuteNonQuery();

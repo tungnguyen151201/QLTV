@@ -1,21 +1,10 @@
-﻿using QLTV.BUS;
+﻿using QLTV.DAO;
 using QLTV.DTO;
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Data;
-using System.Diagnostics;
-using System.Windows.Shapes;
-using QLTV.DAO;
 
 
 namespace QLTV.GUI
@@ -29,12 +18,12 @@ namespace QLTV.GUI
         public TraCuuSachDocGiaGUI()
         {
             InitializeComponent();
-            list_View.ItemsSource = MuonSachDAO.LoadSach();  
-        }        
+            list_View.ItemsSource = MuonSachDAO.LoadSach();
+        }
 
         private void traCuuButton_Click(object sender, RoutedEventArgs e)
         {
-      
+
             string str_search = tbxTraCuu.Text;
             List<SachDTO> list_searched = MuonSachDAO.TracuuSach(str_search);
             if (list_searched?.Any() != true)

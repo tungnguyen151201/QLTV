@@ -1,12 +1,6 @@
 ﻿using QLTV.DAO;
 using QLTV.DTO;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QLTV.BUS
 {
@@ -18,7 +12,7 @@ namespace QLTV.BUS
             foreach (LoaiDocGiaDTO loai in LoaiDocGiaDAO.LayDanhSachLoaiDocGia())
             {
                 list.Add(loai.MaLoai + " - " + loai.TenLoai);
-            }    
+            }
             return list;
         }
         public static bool ThemLoaiDocGia(LoaiDocGiaDTO loaidocgia)

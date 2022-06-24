@@ -1,19 +1,7 @@
 ﻿using QLTV.BUS;
-using QLTV.DAO;
 using QLTV.DTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QLTV.GUI
 {
@@ -36,7 +24,7 @@ namespace QLTV.GUI
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-            }    
+            }
             int khoangCachNxb = QuyDinhBUS.KhoangCachNamXuatBan();
             try
             {
@@ -44,7 +32,7 @@ namespace QLTV.GUI
                 if (DateTime.Now.Year - namXuatBan > khoangCachNxb)
                 {
                     MessageBox.Show("Khoảng cách năm xuất bản vượt quá quy định", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                } 
+                }
                 else
                 {
                     try
@@ -63,7 +51,7 @@ namespace QLTV.GUI
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                }    
+                }
             }
             catch (Exception)
             {

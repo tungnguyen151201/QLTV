@@ -1,23 +1,7 @@
 ﻿using QLTV.BUS;
-using QLTV.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Data;
-using System.Diagnostics;
-using System.Windows.Shapes;
 using QLTV.DAO;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using QLTV.DTO;
+using System.Windows;
 
 namespace QLTV.GUI
 {
@@ -28,10 +12,10 @@ namespace QLTV.GUI
     {
         public TraCuuSachMuonGUI()
         {
-            InitializeComponent();                     
+            InitializeComponent();
         }
 
-  
+
         private void SachMuonSearch_Btn_Click(object sender, RoutedEventArgs e)
         {
             /*string str_search = tbxTraCuu.Text;
@@ -51,15 +35,15 @@ namespace QLTV.GUI
         }
         private void traSachButton_Click(object sender, RoutedEventArgs e)
         {
-            
-          var button = (FrameworkElement)sender;
+
+            var button = (FrameworkElement)sender;
             var tag = button.Tag;
             int masach = int.Parse(tag.ToString());
-        
+
             bool traSach = TraSachDAO.TraSach(masach);
             if (traSach)
             {
-                
+
                 MessageBox.Show("Trả sách thành công!");
                 //list_Book_Rental.ItemsSource = null;
                 //list_Book_Rental.Items.Clear();
@@ -67,14 +51,14 @@ namespace QLTV.GUI
                 //NguoiDungDTO nguoidung = NguoiDungBUS.TimNguoiDung(tbxTraCuu.Text);
                 //list_Book_Rental.ItemsSource = TraSachBUS.LoadSach(nguoidung.MaNguoiDung);
                 //list_Book_Rental.Items.Refresh();
-            
- 
+
+
             }
             else
             {
                 MessageBox.Show("Lỗi!");
             }
-          
+
 
         }
 

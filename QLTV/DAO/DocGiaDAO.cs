@@ -1,11 +1,7 @@
 ﻿using Npgsql;
 using QLTV.DTO;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QLTV.DAO
 {
@@ -36,7 +32,7 @@ namespace QLTV.DAO
                 return null;
             }
             return null;
-        }        
+        }
         public static bool ThemDocGia(DocGiaDTO docgia)
         {
             using NpgsqlConnection con = new NpgsqlConnection(DbConfig.Config());

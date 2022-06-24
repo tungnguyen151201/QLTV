@@ -1,10 +1,7 @@
-﻿using System;
+﻿using QLTV.DTO;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using QLTV.DTO;
 namespace QLTV.DAO
 {
     class TraSachDAO
@@ -36,13 +33,13 @@ namespace QLTV.DAO
                 Object[] row = Sach.Rows[i].ItemArray;
                 List_Sach_Muon.Add(parseDataTable(row));
             }
-            return List_Sach_Muon;            
+            return List_Sach_Muon;
         }
         public static List<SachDTO> TracuuSachMuon(string str)
         {
             List<SachDTO> List_Tra_Cuu = new List<SachDTO>();
             var sql = $"SELECT * FROM public.\"Sach\" S, \"PhieuMuonSach\" PM WHERE S.\"MaSach\" = PM.\"MaSach\" AND  S.\"TenSach\" LIKE \'{str}%\'";
-         
+
             DataTable Sach_tra_cuu = ConnectingDatabase.getDataset(sql);
             for (int i = 0; i < Sach_tra_cuu.Rows.Count; i++)
             {

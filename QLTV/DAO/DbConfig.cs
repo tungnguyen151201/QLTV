@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
-
-namespace QLTV.DAO
-{   
+﻿namespace QLTV.DAO
+{
     public class DbConfig
     {
         public static string Config()
@@ -18,6 +10,6 @@ namespace QLTV.DAO
             const string Database = "qltv";
 
             return $"Host={Host};Username={Username};Password={Password};Database={Database}; Include Error Detail=true";
-        }       
+        }
     }
 }
